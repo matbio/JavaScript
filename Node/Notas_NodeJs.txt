@@ -1,0 +1,98 @@
+INSTRUÇÕES DE TRABALHO E COMANDOS PARA UM PROJETO EM NODEJS
+
+- Primeiro é importante ter o NodeJs LTS instalado, ao instala-lo junto ao Node virá o NPM que é seu gerenciador de pacotes.
+- Os comandos node - v e npm -v mostram as suas respectivas versões.
+- Para Iniciar um projeto comando npm init, exemplo do log de criação:
+
+        C:\EstudoQA\JavaScript\Node\Hello>npm init
+        O sistema não pode encontrar o caminho especificado.
+        This utility will walk you through creating a package.json file.
+        It only covers the most common items, and tries to guess sensible defaults.
+
+        See `npm help init` for definitive documentation on these fields
+        and exactly what they do.
+
+        Use `npm install <pkg>` afterwards to install a package and
+        save it as a dependency in the package.json file.
+
+        Press ^C at any time to quit.
+        package name: (hello)
+        version: (1.0.0)
+        description: Projeto basico utilizando o NodeJs e o Express
+        entry point: (index.js) app.js
+        test command:
+        git repository:
+        keywords: test, nodejs, unitest, apitest
+        author: Matheus Bio Salles
+        license: (ISC)
+        About to write to C:\EstudoQA\JavaScript\Node\Hello\package.json:
+
+        {
+          "name": "hello",
+          "version": "1.0.0",
+          "description": "Projeto basico utilizando o NodeJs e o Express",
+          "main": "app.js",
+          "scripts": {
+            "test": "echo \"Error: no test specified\" && exit 1"
+          },
+          "keywords": [
+            "test",
+            "nodejs",
+            "unitest",
+            "apitest"
+          ],
+          "author": "Matheus Bio Salles",
+          "license": "ISC"
+        }
+
+
+        Is this OK? (yes) yes
+
+- Após a geração do projeto, devemos criar o arquivo inicializador do mesmo, no caso acima app.js (Importante ser o mesmo informado na geração do projeto).
+- Para a execução do projeto o comando : node [nome do arquivo] exemplo: node app.js
+- O comando npm install instala as dependências.
+
+---------- Testes NO NODEJS UTILIZANDO O MOCHA ----------
+- Para utilizar o MOCHA primeiramente devemos instala-lo, comandos:
+    - npm install --global mocha [Instala globalmente.]
+    - npm install --save-dev mocha [Instala na pasta do projeto #recomendado]
+- Para que seu projeto NodeJs execute o mocha como responsável pelos testes no arquivo package.json preencher o campo assim:
+      "scripts": {
+        "test": "mocha"
+      },
+- Para o mocha localizar os testes a serem feitos é recomendado criar o diretório 'test', lá serão postos os arquivos mocha.spec.js
+- Para executar comando: npm test
+
+- Documentação Mocha: https://mochajs.org/#installation
+
+---------- Testes NO NODEJS UTILIZANDO O CHAI MOCHA ----------
+- Para utilizar o CHAI primeiramente devemos instala-lo, comandos:
+    - npm install chai [Instala globalmente.]
+    - npm install chai --save-dev [Instala na pasta do projeto #recomendado]
+- Para que seu projeto NodeJs execute as validações com o CHAI é importante importa-lo no arquivo de teste da seguinte maneira:
+    var chai = require("chai");
+    const expect = chai.expect;
+- Após isso o chai já estará disponível para trabalhar com a opção expect, mas também é possivel configura-lo para:
+    - Should : chai.should();
+    - Assert : var assert = chai.assert;
+
+- Documentação Chai: https://www.chaijs.com/
+
+---------- Testes NO NODEJS UTILIZANDO O CHAIHTTP COM O CHAI NO MOCHA ----------
+- Para utilizar o CHAI primeiramente devemos instala-lo, comandos:
+    - npm install chai-http [Instala globalmente.]
+    - npm install chai-http --save-dev [Instala na pasta do projeto #recomendado]
+- Para que seu projeto NodeJs execute as validações com o CHAIHTTP é importante importa-lo no arquivo de teste e instruir o chai a também utiliza-lo da seguinte maneira:
+    var chaiHttp = require('chai-http');
+    chai.use(chaiHttp);
+- Pronto para utilizar
+
+- Documentação chaiHttp: https://www.chaijs.com/plugins/chai-http/
+
+---------- API's COM NODEJS UTILIZANDO O EXPRESS ----------
+- Para utilizar o Express, no diretório do projeto executar o comando: npm install express
+- Anexar no arquivo da aplicação os comandos:
+    const express = require('express')
+    const app = express()
+
+- Para verificar a documentação: https://expressjs.com/
