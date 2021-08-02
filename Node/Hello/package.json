@@ -1,0 +1,20 @@
+{
+  "name": "hello",
+  "version": "1.0.0",
+  "description": "Projeto basico utilizando o NodeJs e o Express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test",
+    "nodejs",
+    "unitest",
+    "apitest"
+  ],
+  "author": "Matheus Bio Salles",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
