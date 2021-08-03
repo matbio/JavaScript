@@ -104,7 +104,7 @@ INSTRUÇÕES DE TRABALHO E COMANDOS PARA UM PROJETO EM NODEJS
       npm install --save-dev @babel/node
 
   - Instalar o babel register:
-      npm install --save-dev @babel/node
+      npm install --save-dev @babel/register
 
   - criar o arquivo babel.config.json com as seguintes informações:
       {
