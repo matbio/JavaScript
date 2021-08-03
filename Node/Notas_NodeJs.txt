@@ -96,3 +96,37 @@ INSTRUÇÕES DE TRABALHO E COMANDOS PARA UM PROJETO EM NODEJS
     const app = express()
 
 - Para verificar a documentação: https://expressjs.com/
+
+---------- ATUALIZANDO O ES5 PARA O ES6 (ECMASCRIPT2015) UTILIZANDO O BABEL ----------
+- O Node já dá um suporte peuqeno para o ES6, mas para utlização plena dele é necesário:
+  - Instalar o babel cli, core, preset-env e node:
+      npm install --save-dev @babel/core @babel/cli @babel/preset-env
+      npm install --save-dev @babel/node
+
+  - Instalar o babel register:
+      npm install --save-dev @babel/node
+
+  - criar o arquivo babel.config.json com as seguintes informações:
+      {
+          "presets": [
+            [
+              "@babel/env",
+              {
+                "targets": {
+                  "edge": "17",
+                  "firefox": "60",
+                  "chrome": "67",
+                  "safari": "11.1"
+                },
+                "useBuiltIns": "usage",
+                "corejs": "3.6.5"
+              }
+            ]
+          ]
+        }
+  - Alterar o arquivo package.json para se adequar a execução dos testes:
+      "scripts": {
+        "start": "npx babel-node app.js",
+        "test": "mocha test --require @babel/register --exit"
+      },
+- Para verificar a documentação: https://babeljs.io/docs/en/usage

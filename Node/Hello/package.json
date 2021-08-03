@@ -4,7 +4,8 @@
   "description": "Projeto basico utilizando o NodeJs e o Express",
   "main": "app.js",
   "scripts": {
-    "test": "mocha --exit"
+    "start": "npx babel-node app.js",
+    "test": "mocha test --require @babel/register --exit"
   },
   "keywords": [
     "test",
@@ -18,6 +19,11 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.14.9",
+    "@babel/register": "^7.14.5",
     "chai": "^4.3.4",
     "chai-http": "^4.3.0",
     "mocha": "^9.0.3"
