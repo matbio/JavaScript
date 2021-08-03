@@ -1,0 +1,18 @@
+INSTRUÇÕES DE TRABALHO E COMANDOS PARA UM PROJETO EM DOCKER
+
+- Para vizualização de alguns comandos em docker:
+    https://medium.com/xp-inc/principais-comandos-docker-f9b02e6944cd
+
+---------- SUBINDO UM CONTAINER MONGO EM DOCKER  ----------
+- Para subir um container do mongo podemos executar o comando a baixo, ele irá dar o pull na imagem e subirá o container diretamente para seu host:
+    docker run --name mongo -d -p 27017:27017 mongo
+
+- Para realizar as queries e demais operações no banco podemnos ligar nosso container ao robomongo fazendo o download em https://robomongo.org/download
+    - Recomendo a instalação do robo 3t.
+
+---------- SUBINDO UM CONTAINER RABBITMQ EM DOCKER  ----------
+- Para subir um container do RABBITMQ podemos executar o comando a baixo, ele irá dar o pull na imagem e subirá o container diretamente para seu host:
+    docker run -d --hostname rabbitmq --name rabbitmq -p 15672:15672 -p 5672:5672 -p 25676:25676 rabbitmq:3-management
+
+- O usuário e senha padrão são: guest
+  
