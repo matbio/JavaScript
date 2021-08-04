@@ -27,8 +27,8 @@ export default {
     list: (req, res) => {
         let query = {}
 
-        if (req.query.name) {
-            query.name = new RegExp(req.query.name, 'i')
+        if (req.query.title) {
+            query.title = new RegExp(req.query.title, 'i')
         }
 
         Task.find(query, {}, { sort: '-date' }, (err, result) => {
