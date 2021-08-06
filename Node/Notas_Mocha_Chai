@@ -1,0 +1,50 @@
+---------- Testes NO NODEJS UTILIZANDO O MOCHA ----------
+- Para utilizar o MOCHA primeiramente devemos instala-lo, comandos:
+    - npm install --global mocha [Instala globalmente.]
+    - npm install --save-dev mocha [Instala na pasta do projeto #recomendado]
+- Para que seu projeto NodeJs execute o mocha como responsável pelos testes no arquivo package.json preencher o campo assim:
+      "scripts": {
+        "test": "mocha"
+      },
+- Para o mocha localizar os testes a serem feitos é recomendado criar o diretório 'test', lá serão postos os arquivos mocha.spec.js
+- Para executar comando: npm test
+
+- Documentação Mocha: https://mochajs.org/#installation
+
+---------- Testes NO NODEJS UTILIZANDO O CHAI NO MOCHA ----------
+- Para utilizar o CHAI primeiramente devemos instala-lo, comandos:
+    - npm install chai [Instala globalmente.]
+    - npm install chai --save-dev [Instala na pasta do projeto #recomendado]
+- Para que seu projeto NodeJs execute as validações com o CHAI é importante importa-lo no arquivo de teste da seguinte maneira:
+    var chai = require("chai");
+    const expect = chai.expect;
+- Após isso o chai já estará disponível para trabalhar com a opção expect, mas também é possivel configura-lo para:
+    - Should : chai.should();
+    - Assert : var assert = chai.assert;
+
+- Documentação Chai: https://www.chaijs.com/
+
+---------- Testes NO NODEJS UTILIZANDO O CHAIHTTP COM O CHAI NO MOCHA ----------
+- Para utilizar o CHAI primeiramente devemos instala-lo, comandos:
+    - npm install chai-http [Instala globalmente.]
+    - npm install chai-http --save-dev [Instala na pasta do projeto #recomendado]
+- Para que seu projeto NodeJs execute as validações com o CHAIHTTP é importante importa-lo no arquivo de teste e instruir o chai a também utiliza-lo da seguinte maneira:
+    var chaiHttp = require('chai-http');
+    chai.use(chaiHttp);
+- Pronto para utilizar
+
+- Documentação chaiHttp: https://www.chaijs.com/plugins/chai-http/
+
+---------- RELATÓRIOS NO NODEJS UTILIZANDO O MOCHA REPORTS ----------
+- Para utilizar o MOCHA REPORTS acrescentar na execução dos testes em package.json ,os comandos:
+    - test: mocha test/ --reporter [padrão do relatório], exemplos:
+          mocha test/ --reporter nyan
+          mocha test/ --reporter spec
+          mocha test/ --reporter dot
+- Para ver a documentações sobre os tipos de relatórios que existem no mocha acessar: https://mochajs.org/#reporters
+- Para Conseguir exportar o relatório em html, não existe padrão no mocha, mas é possível baixar um pacote com esse padrão existente.
+  - Um bom pacote é o mochawesome, para instala-lo:
+    npm install --save-dev mochawesome
+  - Para configura-lo no package.json:
+    "test": "mocha test/ --reporter mochawesome"
+  - Documentação disponível em: https://www.npmjs.com/package/mochawesome

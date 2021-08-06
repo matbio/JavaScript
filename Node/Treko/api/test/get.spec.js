@@ -4,20 +4,20 @@ import tasksModel from "../models/task"
 
 chai.use(chaiHttp);
 
-const expect = chai.expect;
-const app = require('../app');
-const request = chai.request.agent('http://localhost:3000');
+const expect = chai.expect
+const app = require('../app')
+const request = chai.request.agent(app)
 
 describe("Dado que eu vou usar o método GET da API Tasks", () => {
 
     context("Quando eu tenho tarefas cadastradas", () => {
         before((done) => {
             let tasks = [
-                { title: "Ler para a prova", email: "teste@teste.com", done: true },
-                { title: "Fazer a prova", email: "teste@teste.com", done: false },
-                { title: "Chorar pela prova", email: "teste@teste.com", done: false },
-                { title: "Estudar sobre Express", email: "eu@papito.io", done: false },
-                { title: "Estudar sobre Express com Mocha", email: "eu@papito.io", done: false }
+                { title: "Ler para a prova", owner: "teste@teste.com", done: true },
+                { title: "Fazer a prova", owner: "teste@teste.com", done: false },
+                { title: "Chorar pela prova", owner: "teste@teste.com", done: false },
+                { title: "Estudar sobre Express", owner: "eu@papito.io", done: false },
+                { title: "Estudar sobre Express com Mocha", owner: "eu@papito.io", done: false }
 
             ]
             tasksModel.insertMany(tasks);
@@ -50,10 +50,10 @@ describe("Dado que eu vou usar o método GET da API Tasks", () => {
     context("Quando eu tenho uma tarefa cadastrada", () => {
 
         it("Então vai ser retornado uma tarefa com sucesso (status 200)", (done) => {
-            let task = [
-                { title: "Estudar para a prova de Matematica", email: "teste@teste.com", done: true },
+            let task1 = [
+                { title: "Estudar para a prova de Matematica", owner: "teste@teste.com", done: true },
             ]
-            tasksModel.insertMany(task, (err, res) => {
+            tasksModel.insertMany(task1, (err, res) => {
                 let id = res[0]._id
                 request
                     .get("/task/" + id)

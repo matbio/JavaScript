@@ -1,0 +1,633 @@
+{
+  "stats": {
+    "suites": 12,
+    "tests": 10,
+    "passes": 8,
+    "pending": 0,
+    "failures": 2,
+    "start": "2021-08-06T00:27:46.636Z",
+    "end": "2021-08-06T00:27:50.970Z",
+    "duration": 4334,
+    "testsRegistered": 12,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 2,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "5c6404f5-e8ac-4e47-ba56-956bd6764e63",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "60871115-bc87-42f9-a361-6c002d661ab6",
+          "title": "Dado que eu vou usar o método DELETE da API Tasks",
+          "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\delete.spec.js",
+          "file": "\\test\\delete.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "06e3fb51-54d2-45ef-aaa9-6e56c8b9fc2f",
+              "title": "Quando eu vou deletar uma tarefa existente",
+              "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\delete.spec.js",
+              "file": "\\test\\delete.spec.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook",
+                  "fullTitle": "Dado que eu vou usar o método DELETE da API Tasks Quando eu vou deletar uma tarefa existente \"before all\" hook",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_task.default.insertMany(tarefa);\ndone();",
+                  "err": {},
+                  "uuid": "692dbc51-c754-4b4a-bb98-8daa35944d1f",
+                  "parentUUID": "06e3fb51-54d2-45ef-aaa9-6e56c8b9fc2f",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook",
+                  "fullTitle": "Dado que eu vou usar o método DELETE da API Tasks Quando eu vou deletar uma tarefa existente \"after all\" hook",
+                  "timedOut": false,
+                  "duration": 12,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request.get('/task/' + tarefa._id).end((err, res) => {\n  expect(res).to.have.status(404);\n  done();\n});",
+                  "err": {},
+                  "uuid": "e4089dec-f43a-4a83-b287-5f923922a935",
+                  "parentUUID": "06e3fb51-54d2-45ef-aaa9-6e56c8b9fc2f",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "Então retorno de sucesso (status 200)",
+                  "fullTitle": "Dado que eu vou usar o método DELETE da API Tasks Quando eu vou deletar uma tarefa existente Então retorno de sucesso (status 200)",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "request.delete('/task/' + tarefa._id).end((err, res) => {\n  expect(res).to.have.status(200);\n  expect(res.body).to.eql({});\n  done();\n});",
+                  "err": {
+                    "message": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 404",
+                    "estack": "AssertionError: expected { Object (_events, _eventsCount, ...) } to have status code 200 but got 404\n    at C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\/delete.spec.js:30:41\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\index.js:916:18)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)",
+                    "diff": "- 404\n+ 200\n"
+                  },
+                  "uuid": "195bf0be-b635-4054-9f39-08bccd5c301e",
+                  "parentUUID": "06e3fb51-54d2-45ef-aaa9-6e56c8b9fc2f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "195bf0be-b635-4054-9f39-08bccd5c301e"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "11596073-0be3-4563-b6ba-eac1d0a676bc",
+              "title": "Quando a tarefa nao existe",
+              "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\delete.spec.js",
+              "file": "\\test\\delete.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Então deve retornar 404",
+                  "fullTitle": "Dado que eu vou usar o método DELETE da API Tasks Quando a tarefa nao existe Então deve retornar 404",
+                  "timedOut": false,
+                  "duration": 9,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let id = require('mongoose').Types.ObjectId();\nrequest.delete('/task/' + id).end((err, res) => {\n  expect(res).to.have.status(404);\n  expect(res.body).to.eql({});\n  done();\n});",
+                  "err": {},
+                  "uuid": "e005c9ed-d900-4672-ac50-81a826b95c4e",
+                  "parentUUID": "11596073-0be3-4563-b6ba-eac1d0a676bc",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e005c9ed-d900-4672-ac50-81a826b95c4e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 9,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "75aced58-65fa-4c87-bd2c-55d53c960eee",
+          "title": "Dado que eu vou usar o método GET da API Tasks",
+          "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\get.spec.js",
+          "file": "\\test\\get.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "f7784403-1cee-4322-81ea-1a52f804e43f",
+              "title": "Quando eu tenho tarefas cadastradas",
+              "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\get.spec.js",
+              "file": "\\test\\get.spec.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook",
+                  "fullTitle": "Dado que eu vou usar o método GET da API Tasks Quando eu tenho tarefas cadastradas \"before all\" hook",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let tasks = [{\n  title: \"Ler para a prova\",\n  owner: \"teste@teste.com\",\n  done: true\n}, {\n  title: \"Fazer a prova\",\n  owner: \"teste@teste.com\",\n  done: false\n}, {\n  title: \"Chorar pela prova\",\n  owner: \"teste@teste.com\",\n  done: false\n}, {\n  title: \"Estudar sobre Express\",\n  owner: \"eu@papito.io\",\n  done: false\n}, {\n  title: \"Estudar sobre Express com Mocha\",\n  owner: \"eu@papito.io\",\n  done: false\n}];\n_task.default.insertMany(tasks);\ndone();",
+                  "err": {},
+                  "uuid": "fdc18372-a582-434a-b5c6-a0db14f15de2",
+                  "parentUUID": "f7784403-1cee-4322-81ea-1a52f804e43f",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Então vai ser retornado uma lista com sucesso (status 200)",
+                  "fullTitle": "Dado que eu vou usar o método GET da API Tasks Quando eu tenho tarefas cadastradas Então vai ser retornado uma lista com sucesso (status 200)",
+                  "timedOut": false,
+                  "duration": 17,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request.get('/task').end((err, res) => {\n  expect(res).to.has.status(200);\n  expect(res.body.data).to.be.an(\"array\");\n  done();\n});",
+                  "err": {},
+                  "uuid": "f872d55f-482d-4088-8a93-72c5508fa67a",
+                  "parentUUID": "f7784403-1cee-4322-81ea-1a52f804e43f",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Então vai ser retornado uma lista filtrada pela palavra Express com sucesso (status 200)",
+                  "fullTitle": "Dado que eu vou usar o método GET da API Tasks Quando eu tenho tarefas cadastradas Então vai ser retornado uma lista filtrada pela palavra Express com sucesso (status 200)",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "request.get('/task').query({\n  title: 'Express'\n}).end((err, res) => {\n  expect(res).to.has.status(200);\n  expect(res.body.data).to.be.an(\"array\");\n  expect(res.body.data[0].title).to.eql(\"Estudar sobre Express\");\n  expect(res.body.data[1].title).to.eql(\"Estudar sobre Express com Mocha\");\n  done();\n});",
+                  "err": {
+                    "message": "TypeError: Cannot read property 'title' of undefined",
+                    "estack": "TypeError: Cannot read property 'title' of undefined\n    at C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\/get.spec.js:44:45\n    at Test.Request.callback (node_modules\\superagent\\lib\\node\\index.js:716:12)\n    at C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\node_modules\\superagent\\lib\\node\\index.js:916:18\n    at IncomingMessage.<anonymous> (node_modules\\superagent\\lib\\node\\parsers\\json.js:19:7)\n    at endReadableNT (internal/streams/readable.js:1317:12)\n    at processTicksAndRejections (internal/process/task_queues.js:82:21)",
+                    "diff": null
+                  },
+                  "uuid": "5dd98fe8-36f9-4cb5-8ada-fa8c4a87389d",
+                  "parentUUID": "f7784403-1cee-4322-81ea-1a52f804e43f",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f872d55f-482d-4088-8a93-72c5508fa67a"
+              ],
+              "failures": [
+                "5dd98fe8-36f9-4cb5-8ada-fa8c4a87389d"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 17,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "1736bbbc-2bf6-4ab6-acb4-b4fdba37a4eb",
+              "title": "Quando eu tenho uma tarefa cadastrada",
+              "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\get.spec.js",
+              "file": "\\test\\get.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Então vai ser retornado uma tarefa com sucesso (status 200)",
+                  "fullTitle": "Dado que eu vou usar o método GET da API Tasks Quando eu tenho uma tarefa cadastrada Então vai ser retornado uma tarefa com sucesso (status 200)",
+                  "timedOut": false,
+                  "duration": 1976,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let task1 = [{\n  title: \"Estudar para a prova de Matematica\",\n  owner: \"teste@teste.com\",\n  done: true\n}];\n_task.default.insertMany(task1, (err, res) => {\n  let id = res[0]._id;\n  request.get(\"/task/\" + id).end((err, res) => {\n    expect(res).to.has.status(200);\n    expect(res.body.data.title).to.equal(\"Estudar para a prova de Matematica\");\n    done();\n  });\n});",
+                  "err": {},
+                  "uuid": "b22b28d8-f6c7-498f-9d91-044266be3df2",
+                  "parentUUID": "1736bbbc-2bf6-4ab6-acb4-b4fdba37a4eb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b22b28d8-f6c7-498f-9d91-044266be3df2"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 1976,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "631ab648-931c-42ec-8d56-c29dab1503ed",
+              "title": "Quando eu tenho uma tarefa nao existe",
+              "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\get.spec.js",
+              "file": "\\test\\get.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Então deve retornar 404",
+                  "fullTitle": "Dado que eu vou usar o método GET da API Tasks Quando eu tenho uma tarefa nao existe Então deve retornar 404",
+                  "timedOut": false,
+                  "duration": 7,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request.get('/task/13').end((err, res) => {\n  expect(res).to.has.status(404);\n  expect(res.body).to.eql({});\n  done();\n});",
+                  "err": {},
+                  "uuid": "525bc3c6-d1a0-42fd-bbb0-4cc09454b320",
+                  "parentUUID": "631ab648-931c-42ec-8d56-c29dab1503ed",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "525bc3c6-d1a0-42fd-bbb0-4cc09454b320"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "3e892e9f-870a-46f6-8de4-9f63831e915b",
+          "title": "Dado que eu vou usar o método POST da API Tasks",
+          "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\post.spec.js",
+          "file": "\\test\\post.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "3b90dc63-03cf-4e16-be59-2fc23354a7c6",
+              "title": "Quando eu cadastrar uma tarefa",
+              "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\post.spec.js",
+              "file": "\\test\\post.spec.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook for \"Então vai ser inserido uma nova tarefa na lista de tarefas\"",
+                  "fullTitle": "Dado que eu vou usar o método POST da API Tasks Quando eu cadastrar uma tarefa \"before all\" hook for \"Então vai ser inserido uma nova tarefa na lista de tarefas\"",
+                  "timedOut": true,
+                  "duration": 2003,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "rabbit.delete(\"/api/queues/%2F/tasksdev/contents\").auth('guest', 'guest').end((err, res) => {\n  expect(res).to.has.status(204);\n  done();\n});",
+                  "err": {
+                    "message": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\post.spec.js)",
+                    "estack": "Error: Timeout of 2000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\post.spec.js)\n    at listOnTimeout (internal/timers.js:557:17)\n    at processTimers (internal/timers.js:500:7)",
+                    "diff": null
+                  },
+                  "uuid": "46470e68-43ab-4813-ae5c-50dc1309ebe6",
+                  "parentUUID": "3b90dc63-03cf-4e16-be59-2fc23354a7c6",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Então vai ser inserido uma nova tarefa na lista de tarefas",
+                  "fullTitle": "Dado que eu vou usar o método POST da API Tasks Quando eu cadastrar uma tarefa Então vai ser inserido uma nova tarefa na lista de tarefas",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let task = {\n  title: \"Ver um filme sobre POST\",\n  owner: \"teste@teste.com\",\n  done: false\n};\nrequest.post('/task').send(task).end((err, res) => {\n  expect(res).to.has.status(200);\n  expect(res.body.data.title).to.be.an(\"string\");\n  expect(res.body.data.owner).to.be.an(\"string\");\n  expect(res.body.data.done).to.be.an(\"boolean\");\n  done();\n});",
+                  "err": {},
+                  "uuid": "5a240c46-3cc4-4c58-9f78-68ea3596fbea",
+                  "parentUUID": "3b90dc63-03cf-4e16-be59-2fc23354a7c6",
+                  "isHook": false,
+                  "skipped": true
+                },
+                {
+                  "title": "e deve enviar email",
+                  "fullTitle": "Dado que eu vou usar o método POST da API Tasks Quando eu cadastrar uma tarefa e deve enviar email",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let payload = {\n  vhost: \"/\",\n  name: \"tasksdev\",\n  truncate: \"50000\",\n  ackmode: \"ack_requeue_true\",\n  encoding: \"auto\",\n  count: \"1000\"\n};\nrabbit.post(\"/api/queues/%2f/tasksdev/get\").auth('guest', 'guest').send(payload).end((err, res) => {\n  expect(res).to.have.status(200);\n  expect(res.body[0].payload).to.contain(\"Tarefa \".concat(task.title, \" criada com sucesso!\"));\n  done();\n});",
+                  "err": {},
+                  "uuid": "d563f306-1e6f-49a6-afb0-2d3caa57b2b0",
+                  "parentUUID": "3b90dc63-03cf-4e16-be59-2fc23354a7c6",
+                  "isHook": false,
+                  "skipped": true
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [],
+              "pending": [],
+              "skipped": [
+                "5a240c46-3cc4-4c58-9f78-68ea3596fbea",
+                "d563f306-1e6f-49a6-afb0-2d3caa57b2b0"
+              ],
+              "duration": 0,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "4750c69c-ab2b-4f57-9d87-b9d7478b60b8",
+              "title": "Quando eu cadastrar uma tarefa sem informações obrigatórias",
+              "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\post.spec.js",
+              "file": "\\test\\post.spec.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Então sem titulo não vai ser cadastrada e vai retornar (status 400)",
+                  "fullTitle": "Dado que eu vou usar o método POST da API Tasks Quando eu cadastrar uma tarefa sem informações obrigatórias Então sem titulo não vai ser cadastrada e vai retornar (status 400)",
+                  "timedOut": false,
+                  "duration": 23,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let task = {\n  title: \"\",\n  owner: \"teste@teste.com\",\n  done: false\n};\nrequest.post('/task').send(task).end((err, res) => {\n  expect(res).to.has.status(400);\n  expect(res.body.errors.title.message).to.equal(\"Title is required!\");\n  done();\n});",
+                  "err": {},
+                  "uuid": "9f2dee74-9427-41db-91a0-4508c507875e",
+                  "parentUUID": "4750c69c-ab2b-4f57-9d87-b9d7478b60b8",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Então sem Owner não vai ser cadastrada e vai retornar (status 400)",
+                  "fullTitle": "Dado que eu vou usar o método POST da API Tasks Quando eu cadastrar uma tarefa sem informações obrigatórias Então sem Owner não vai ser cadastrada e vai retornar (status 400)",
+                  "timedOut": false,
+                  "duration": 5,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "let task = {\n  title: \"Teste de tarefa\",\n  owner: \"\",\n  done: false\n};\nrequest.post('/task').send(task).end((err, res) => {\n  expect(res).to.has.status(400);\n  expect(res.body.errors.owner.message).to.equal(\"Owner is required!\");\n  done();\n});",
+                  "err": {},
+                  "uuid": "ef10efaf-4a28-4ff1-b3ca-913dcae15b4c",
+                  "parentUUID": "4750c69c-ab2b-4f57-9d87-b9d7478b60b8",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9f2dee74-9427-41db-91a0-4508c507875e",
+                "ef10efaf-4a28-4ff1-b3ca-913dcae15b4c"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 28,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "3c4b32be-db2f-4ca1-8398-e437970e0f2d",
+          "title": "Dado que eu vou usar o método PUT da API Tasks",
+          "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\put.spec.js",
+          "file": "\\test\\put.spec.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "536942a2-f106-4dd9-993a-a281d0788cf1",
+              "title": "Quando eu alterar uma tarefa",
+              "fullFile": "C:\\EstudoQA\\JavaScript\\Node\\Treko\\api\\test\\put.spec.js",
+              "file": "\\test\\put.spec.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook",
+                  "fullTitle": "Dado que eu vou usar o método PUT da API Tasks Quando eu alterar uma tarefa \"before all\" hook",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_task.default.insertMany(task);\ndone();",
+                  "err": {},
+                  "uuid": "64ebfd36-38ed-4000-a041-df9b04e9858a",
+                  "parentUUID": "536942a2-f106-4dd9-993a-a281d0788cf1",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Então vai ter retorno de sucesso (status 200)",
+                  "fullTitle": "Dado que eu vou usar o método PUT da API Tasks Quando eu alterar uma tarefa Então vai ter retorno de sucesso (status 200)",
+                  "timedOut": false,
+                  "duration": 23,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "task.title = \"Tarefa Atualizada\", request.put('/task/' + task._id).send(task).end((err, res) => {\n  expect(res).to.has.status(200);\n  expect(res.body).to.eql({});\n  done();\n});",
+                  "err": {},
+                  "uuid": "fadb84bc-47c2-40ef-8bc4-db7de5deb5a4",
+                  "parentUUID": "536942a2-f106-4dd9-993a-a281d0788cf1",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "E vai ser alterado",
+                  "fullTitle": "Dado que eu vou usar o método PUT da API Tasks Quando eu alterar uma tarefa E vai ser alterado",
+                  "timedOut": false,
+                  "duration": 27,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request.get('/task/' + task._id).send(task).end((err, res) => {\n  expect(res.body.data.title).to.equals(task.title);\n  done();\n});",
+                  "err": {},
+                  "uuid": "e20aa783-8aa6-47b7-8d3a-29b887f4b918",
+                  "parentUUID": "536942a2-f106-4dd9-993a-a281d0788cf1",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "fadb84bc-47c2-40ef-8bc4-db7de5deb5a4",
+                "e20aa783-8aa6-47b7-8d3a-29b887f4b918"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 50,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "6.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}

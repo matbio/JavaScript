@@ -2,7 +2,12 @@ import Task from './models/task';
 
 import { publishToQueue } from './mqservice';
 
-const defaultQueue = "tasks";
+var defaultQueue
+
+if (process.env.NODE_ENV == 'dev')
+    defaultQueue = "tasksdev";
+else
+    defaultQueue = "tasks";
 
 export default {
     create: (req, res) => {
@@ -19,6 +24,10 @@ export default {
 
             if (err.name === "ValidationError") {
                 return res.status(400).json(err)
+            }
+            
+            if (err.name === 'MongoError') {
+                return res.status(409).json(err)
             }
 
             return res.status(500).json(err)
